@@ -22,7 +22,7 @@
         android:id="@+id/etItemName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Item Name"
+        android:hint="Enter Item Name"
         android:textSize="20dp"/>
 
 
@@ -30,28 +30,33 @@
         android:id="@+id/etItemPrice"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Item Price"
+        android:hint="Item Price"
         android:textSize="20dp"/>
 
     <EditText
         android:id="@+id/etItemImageName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Item Image Name"
+        android:hint="ImageName"
         android:textSize="20dp"/>
+
+
+
 
     <EditText
         android:id="@+id/etItemDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Item Description"
+        android:hint="Item Description"
+        android:inputType="text"
         android:textSize="20dp"/>
 
 <Button
     android:id="@+id/btnAddItem"
-    android:layout_width="match_parent"
+    android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:textSize="20dp"
+    android:layout_gravity="center"
     android:text="Add Item"/>
 
 

@@ -1,5 +1,6 @@
 package com.e.softwaricaassignment;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -44,7 +45,9 @@ public class AddItemActivity extends AppCompatActivity {
         try {
             PrintStream printStream = new PrintStream(openFileOutput("item.txt",MODE_PRIVATE | MODE_APPEND));
             printStream.println(etItemName.getText().toString()+"->"+etItemPrice.getText().toString()+"->"+etItemImageName.getText().toString()+"->"+etItemDescription.getText().toString());
-            Toast.makeText(this,"Add to"+getFilesDir(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Add to",Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(AddItemActivity.this,DashboardActivity.class);
+            startActivity(intent);
 
 
         } catch (IOException e) {

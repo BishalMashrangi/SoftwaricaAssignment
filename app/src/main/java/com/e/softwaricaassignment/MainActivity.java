@@ -1,5 +1,7 @@
 package com.e.softwaricaassignment;
 
+import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -11,41 +13,26 @@ import android.widget.Button;
 import Fragments.LoginActivity;
 import Fragments.RegistrationActivity;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener{
-    private Button btnLoad;
-    private Boolean status=true;
+public class MainActivity extends AppCompatActivity{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        btnLoad =findViewById(R.id.btnLoad);
-        btnLoad.setOnClickListener(this);
+        Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(MainActivity.this,ViewPagerActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        },2000);
+    }
 
 
 
     }
 
-    @Override
-    public void onClick(View v) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction= fragmentManager.beginTransaction();
 
-        if(status){
-            LoginActivity loginActivity= new LoginActivity();
-            fragmentTransaction.replace(R.id.fragmentContainer,loginActivity);
-            fragmentTransaction.commit();
-            btnLoad.setText("Login");
-            status=false;
-        }else {
-            RegistrationActivity registrationActivity= new RegistrationActivity();
-            fragmentTransaction.replace(R.id.fragmentContainer, registrationActivity);
-            fragmentTransaction.commit();
-            btnLoad.setText("Registered");
-            status= true;
-        }
-
-    }
-}
 
